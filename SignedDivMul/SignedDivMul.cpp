@@ -10,6 +10,7 @@ int main()
     int a = 21, b = 9;
     int prod = 0, quo = 0, rem = 0;
     int rv;
+    /*works with 0 and signed values*/
     rv = IntegerMulDiv(a, b, &prod, &quo, &rem);
 
     printf("Input a:  %4d  b:  %4d\n", a, b);
