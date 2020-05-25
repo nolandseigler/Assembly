@@ -47,4 +47,12 @@ IntegerMulDiv	proc
 				mov [ebx],eax
 				mov ebx,[ebp+24] ;put remainder from ebp+24 to ebx
 				mov [ebx],edx
-				mov eax,1
+				mov eax,1 ;return 1 from eax for Success
+
+	InvalidDivisor:
+				;if 0 for divisor perform epilogue
+				pop ebx
+				pop ebp
+				ret
+IntegerMulDiv	endp
+				end
