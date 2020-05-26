@@ -34,7 +34,7 @@ CalculateSum	proc
 				;this may all be lies because it came from my brain not the curric but it makes sense rn
 				
 				
-				;Compute S1
+				;Compute S1; s1 = a + b + c
 				mov [ebp-12],eax
 				;now do math in memory instead of registers. why? i dont know
 				;instructor just said we are doing this to demo local vars
@@ -43,7 +43,7 @@ CalculateSum	proc
 				;[ebp-12] is temporaty s1 in local storage. yay.
 
 
-				;Compute S2
+				;Compute S2. s2 = a*a + b*b + c * c
 				;find squares. a ^ 2; b ^ 2; c ^ 2;
 				imul eax,eax ;signed multiplication
 				imul ebx,ebx
@@ -53,3 +53,13 @@ CalculateSum	proc
 				mov [ebp-8],eax
 				add [ebp-8],ebx
 				add [ebp-8],ecx
+
+				;Compute s3 = a*a*a + b*b*b + c*c*c
+				imul eax,[ebp+8] ;multiply the value that is already a*a by a
+				imul ebx,[ebp+12]
+				imul ecx,[ebp+16]
+
+				;store S3 in temp 3
+				mov [ebp-4],eax
+				add [ebp-4],ebx
+				add [ebp-4],ecx
