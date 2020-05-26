@@ -32,6 +32,24 @@ CalculateSum	proc
 				;this is the deepest location down the mem stack that we cleared out for local vars
 				;using sub esp,12
 				;this may all be lies because it came from my brain not the curric but it makes sense rn
+				
+				
+				;Compute S1
 				mov [ebp-12],eax
-				add [ebp-12],ebx
-				add [ebp-12],ecx
+				;now do math in memory instead of registers. why? i dont know
+				;instructor just said we are doing this to demo local vars
+				add [ebp-12],ebx ;eax + ebx which is a + b
+				add [ebp-12],ecx ; eax + ebx was in the location now we are adding ecx which means a + b + c
+				;[ebp-12] is temporaty s1 in local storage. yay.
+
+
+				;Compute S2
+				;find squares. a ^ 2; b ^ 2; c ^ 2;
+				imul eax,eax ;signed multiplication
+				imul ebx,ebx
+				imul ecx,ecx
+
+				;store S2 in temp 2
+				mov [ebp-8],eax
+				add [ebp-8],ebx
+				add [ebp-8],ecx
