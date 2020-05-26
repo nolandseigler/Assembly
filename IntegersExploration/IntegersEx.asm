@@ -14,11 +14,11 @@ IntegerAddition		proc
 
 					;Compute GlChar +=a
 					mov al,[ebp+8]
-					add [G1Char],al
+					add [GlChar],al
 
 					;Compute G1Short +=b
 					mov ax,[ebp+12]
-					add[G1Short],ax
+					add[GlShort],ax
 
 					;Compute GlInt +=c
 					mov eax,[ebp+16]
