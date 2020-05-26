@@ -63,3 +63,23 @@ CalculateSum	proc
 				mov [ebp-4],eax
 				add [ebp-4],ebx
 				add [ebp-4],ecx
+
+				;Save s1, s2, and s3 in registers
+				mov eax,[ebp-12] ;s1 to eax
+				mov [edx],eax ;saves it to first edx mem location because it is the return register
+				mov eax,[ebp-8] ;s2 to eax
+				mov [esi],eax ;saves
+				mov eax,[ebp-4] ;s3 to eax
+				mov [edi],eax ;saves
+
+				;procdure epilgoue
+				pop edi
+				pop esi
+				pop ebx
+				mov esp,ebp ;give back local storage?? releaseas storage and restores esp
+				pop ebp
+
+				ret
+
+CalculateSum	endp
+				end
